@@ -11,8 +11,8 @@ app.get('/', (_, res) => {
 
 // Initialize Payload
 payload.init({
-  secret: 'test',
-  mongoURL: 'mongodb+srv://ricardoccolares:isolina68@devmates.c9ufhdx.mongodb.net/?retryWrites=true&w=majority',
+  secret: process.env.SECRET,
+  mongoURL: process.env.MONGODB_URI,
   express: app,
   onInit: () => {
     payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
@@ -21,4 +21,4 @@ payload.init({
 
 // Add your own express routes here
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000);
